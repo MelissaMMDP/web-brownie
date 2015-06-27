@@ -1,5 +1,7 @@
 # Web Brownie
 
+Named after those mischievous brownies of folklore. In folklore, a [brownie](https://en.wikipedia.org/wiki/Brownie_(folklore)) resembles the hob, similar to a hobgoblin. Brownies are said to inhabit houses and aid in tasks around the house (in this case a web development task). However, they do not like to be seen and will only work at night, traditionally in exchange for small gifts of food. Among food, they especially enjoy porridge and honey.
+
 ## What it's about
 
 In this build I have attempted to create a simple code base using Node.js, Express, Gulp, AngularJS and Less.js with a focus on best practices in both web development and web design.

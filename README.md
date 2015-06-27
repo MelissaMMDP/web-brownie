@@ -25,7 +25,7 @@ This code base is an ongoing project that has evolved over several builds and cl
     
 ## Installation
 
-- Clone the repo: `git clone https://github.com/MAustinMMDP/web-brownie-sans-browser-less.git`.
+- Clone the repo: `git clone https://github.com/MAustinMMDP/web-brownie.git`.
 - Install the following from within the project folder:
     ```bash
     npm install

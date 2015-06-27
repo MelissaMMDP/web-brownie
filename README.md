@@ -41,7 +41,7 @@ This code base is an ongoing project that has evolved over several builds and cl
 Within the download you'll find the following directories and files, logically grouping common assets. You'll see something like this:
 
 ```
-web-brownie-sans-browser-less/
+web-brownie/
 ├── src/
 │   ├── client/
 │       ├── app/

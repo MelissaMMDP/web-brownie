@@ -40,7 +40,7 @@ body {
 
 header {
     .background-base(@lightness: 100, @alpha: .8);
-    .border(bottom, @border-color: lightgray);
+    .border(bottom, @border-bottom-color: lightgray);
     .grid(full);
     left: 0;
     position: fixed;
@@ -49,10 +49,10 @@ header {
 
 footer {
     .background-base(@lightness: 100);
+    .border(top, @border-top-color: darkgray);
     bottom: 0; // !important - helps maintain set height
     .height(80); // !important - match body margin-bottom
     position: absolute; // !important - clears
-    .border(top, @border-color: darkgray);
     .grid(full);
     p {
         .column(12, @text-align: center);

@@ -1,4 +1,4 @@
-// ---------- COLOR SCHEME MAGIC
+// ---------- COLOR
 
 // BASE COLOR
 //== base color variables *** this is where the magic happens :)
@@ -126,4 +126,35 @@
 
 .fill-triadic-two(@hue: @hue, @saturation: @saturation, @lightness: @lightness, @alpha: @alpha) {
     fill: @tc-two;
+}
+
+// BORDER
+//== border variables
+@bds: solid;
+@bdw: 1;
+@bdc: @color-base;
+//== border mixins
+// add border on all sides, e.g., .border(all, 2, dotted, red); result = border-width: 0.125em; border-style: dotted; border-color: red;
+.border (@mixin, @border-width: @bdw, @border-style: @bds, @border-color: @bdc, @border-top-style: @bds, @border-right-style: @bds, @border-bottom-style: @bds, @border-left-style: @bds, @border-top-color: @bdc, @border-right-color: @bdc, @border-bottom-color: @bdc, @border-left-color: @bdc) when (@mixin =all) {
+    border: unit((@border-width / @fz), em) @border-style @border-color;
+}
+
+// add top border, e.g., .border(@mixin: top, @border-top-color: red); result = border-width: 0.0625em; border-top-style: solid; border-top-color: red;
+.border (@mixin, @border-width: @bdw, @border-style: @bds, @border-color: @bdc, @border-top-style: @bds, @border-right-style: @bds, @border-bottom-style: @bds, @border-left-style: @bds, @border-top-color: @bdc, @border-right-color: @bdc, @border-bottom-color: @bdc, @border-left-color: @bdc) when (@mixin =top) {
+    border: unit((@border-width / @fz), em) @border-top-style @border-top-color;
+}
+
+// add right border, e.g., .border(@mixin: right, @border-right-color: red); result = border-width: 0.0625em; border-right-style: solid; border-right-color: red;
+.border (@mixin, @border-width: @bdw, @border-style: @bds, @border-color: @bdc, @border-top-style: @bds, @border-right-style: @bds, @border-bottom-style: @bds, @border-left-style: @bds, @border-top-color: @bdc, @border-right-color: @bdc, @border-bottom-color: @bdc, @border-left-color: @bdc) when (@mixin =right) {
+    border: unit((@border-width / @fz), em) @border-right-style @border-right-color;
+}
+
+// add bottom border, e.g., .border(@mixin: bottom, @border-bottom-color: red); result = border-width: 0.0625em; border-bottom-style: solid; border-bottom-color: red;
+.border (@mixin, @border-width: @bdw, @border-style: @bds, @border-color: @bdc, @border-top-style: @bds, @border-right-style: @bds, @border-bottom-style: @bds, @border-left-style: @bds, @border-top-color: @bdc, @border-right-color: @bdc, @border-bottom-color: @bdc, @border-left-color: @bdc) when (@mixin =bottom) {
+    border: unit((@border-width / @fz), em) @border-bottom-style @border-bottom-color;
+}
+
+// add left border, e.g., .border(@mixin: left, @border-width:2, @border-left-color:green); result = border-width: 0.125em; border-left-style: solid; border-left-color: green;
+.border (@mixin, @border-width: @bdw, @border-style: @bds, @border-color: @bdc, @border-top-style: @bds, @border-right-style: @bds, @border-bottom-style: @bds, @border-left-style: @bds, @border-top-color: @bdc, @border-right-color: @bdc, @border-bottom-color: @bdc, @border-left-color: @bdc) when (@mixin =left) {
+    border: unit((@border-width / @fz), em) @border-left-style @border-left-color;
 }

@@ -1,10 +1,9 @@
-// ---------- FONT MIXIN
+// ---------- FONT
 
-//== font variables
-// google web fonts
+// google web font imports
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:300);
 @import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300);
-// font family
+// font family variables
 @ff-ss-open: 'Open Sans', sans-serif;
 @ff-ss-open-cond: 'Open Sans Condensed', sans-serif;
 // font-size and line-height variables
@@ -13,7 +12,7 @@
 @lh: 1.4;
 @ta-h1-6: center;
 
-//== font mixins
+//== font and line-height mixins
 // NOTE: line-height is unit-less to avoid poor inheritance behavior - https://developer.mozilla.org/en-US/docs/Web/CSS/line-height
 // font-size mixin
 .font-size(@font-size: @fz, @line-height: @lh) {

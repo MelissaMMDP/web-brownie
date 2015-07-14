@@ -85,13 +85,14 @@ h1, h2, p, ul {
     margin: 0;
 }
 
-a:link, a:visited {
-    .color-complementary;
-    text-decoration: none;
-}
-
-a:hover {
-    .color-base;
+a {
+    &:link, &:visited {
+        .color-complementary;
+        text-decoration: none;
+    }
+    &:hover {
+        .color-split-complementary-two;
+    }
 }
 
 // ---------- NAVIGATION
@@ -100,7 +101,20 @@ a:hover {
     .padding(all);
     li {
         float: left;
-        .padding(short, @padding-y: 0, @padding-x: 10);
+        a {
+            .padding(short, @padding-y: 21, @padding-x: 15);
+            &:link, &:visited {
+                .color-complementary;
+            }
+            &:hover {
+                .background-complementary;
+                .color-complementary(@lightness: 100);
+            }
+            &:focus {
+                .background-complementary;
+                .color-complementary(@lightness: 100);
+            }
+        }
     }
 }
 

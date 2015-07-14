@@ -61,8 +61,7 @@ web-brownie/
 │               ├── shell.controller.js
 │               └── shell.html
 │           ├── app.config.js
-│           ├── app.module.js
-│           └── index.html
+│           └── app.module.js
 │       ├── styles/
 │           ├── less/
 │               ├── animate.less
@@ -71,6 +70,7 @@ web-brownie/
 │               ├── grid.less
 │               └── import.less
 │           └── styles.less
+│       └── index.html
 │   ├── server/
 │       └── app.js
 ├── .bowerrc

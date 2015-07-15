@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    angular.module('app.color', [
+    angular.module('app.home', [
         'app.core'
     ]);
 

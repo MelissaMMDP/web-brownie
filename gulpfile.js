@@ -3,6 +3,7 @@ var args = require('yargs').argv;
 var browserSync = require('browser-sync');
 var config = require('./gulp.config')();
 var del = require('del');
+var karma = require('karma').server;
 var $ = require('gulp-load-plugins')({lazy: true});
 var port = process.env.PORT || config.defaultPort;
 
@@ -155,9 +156,23 @@ gulp.task('serve-dev', ['inject'], function () {
     serve(true /*isDev*/);
 });
 
-/*  */
 gulp.task('serve-build', ['optimize'], function () {
     serve(false /*isDev*/);
+});
+
+/* run test once and exit */
+gulp.task('test', function (done) {
+    karma.start({
+        configFile: __dirname + '/karma.conf.js',
+        singleRun: true
+    }, done);
+});
+
+/* watch for file changes and re-run tests on each change */
+gulp.task('tdd', function (done) {
+    karma.start({
+        configFile: __dirname + '/karma.conf.js'
+    }, done);
 });
 
 //////////

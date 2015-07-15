@@ -7,6 +7,7 @@
 
         // feature modules
         'app.color',
+        'app.home',
         'app.layout'
     ]);
 

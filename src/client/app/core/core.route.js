@@ -2,17 +2,17 @@
     'use strict';
 
     angular
-        .module('app')
+        .module('app.core')
         .config(function ($stateProvider, $urlRouterProvider) {
 
             $urlRouterProvider.otherwise('/home');
 
             $stateProvider
-                .state('shell', {
+                .state('home', {
                     url: '/home',
-                    controller: 'Shell',
-                    controllerAs: 'shell',
-                    templateUrl: 'app/layout/shell.html'
+                    controller: 'Home',
+                    controllerAs: 'home',
+                    templateUrl: 'app/home/home.html'
                 })
                 .state('color', {
                     url: '/color',

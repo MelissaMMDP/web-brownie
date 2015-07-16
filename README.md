@@ -83,6 +83,7 @@ web-brownie/
 ├── bower.json
 ├── gulp.config.json
 ├── gulpfile.js
+├── karma.conf.js
 ├── LICENSE
 ├── package.json
 └── README.md
@@ -120,3 +121,9 @@ web-brownie/
 - `gulp serve-build`
     
     The development code is optimized and placed in the build folder then launched in a browser using a Node.js and Express web server. On save of code changes the files will be optimized and browser-sync will reload the browser. 
+
+## Karma Testing    
+        
+- `karma start`
+    
+    Watch for file changes and re-run tests on each change

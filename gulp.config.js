@@ -3,6 +3,8 @@ module.exports = function () {
     var clientApp = client + 'app/';
     var server = './src/server/';
     var temp = './.tmp/';
+    var wiredep = require('wiredep');
+    var bowerFiles = wiredep({devDependencies: true})['js'];
 
     var config = {
         /* file paths */
@@ -24,6 +26,7 @@ module.exports = function () {
         ],
         less: client + 'styles/styles.less',
         server: server,
+        specs: clientApp + '**/*.spec.js',
         source: 'src/',
         temp: temp,
 
@@ -68,5 +71,25 @@ module.exports = function () {
         return options;
     };
 
+    /* karma settings */
+    config.karma = getKarmaOptions();
+
     return config;
+
+    ////////////////
+
+    function getKarmaOptions() {
+        var options = {
+            files: [].concat(
+                bowerFiles,
+                config.specs,
+                clientApp + '**/*.module.js',
+                clientApp + '**/*.js',
+                temp + config.templateCache.file
+            ),
+            exclude: [],
+            preprocessors: {}
+        };
+        return options;
+    }
 };

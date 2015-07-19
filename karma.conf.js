@@ -1,14 +1,22 @@
-module.exports = function(config) {
+module.exports = function (config) {
+    var gulpConfig = require('./gulp.config')();
+
     config.set({
-        browsers: ['Chrome'],
+
+        // base path, that will be used to resolve files and exclude
+        basePath: './',
+
+
+        // list of files / patterns to load in the browser
+        files: gulpConfig.karma.files,
+
+
+        // frameworks to use
         frameworks: ['jasmine'],
-        files: [
-            'bower_components/angular/angular.js',
-            'bower_components/angular-mocks/angular-mocks.js',
-            'bower_components/angular-sanitize/angular-sanitize.js',
-            'bower_components/angular-ui-router/release/angular-ui-router.js',
-            'src/client/app/**/*.js',
-            'src/client/app/**/*.spec.js'
-        ]
+
+
+        // Start these browsers
+        browsers: ['Chrome']
+
     });
 };

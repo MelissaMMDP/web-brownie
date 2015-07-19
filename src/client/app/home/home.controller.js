@@ -9,7 +9,7 @@
     function Home() {
         var vm = this;
 
-        vm.mainHeading = 'Web Brownie';
+        vm.headingOne = 'Web Brownie';
     }
 
 }());

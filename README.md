@@ -8,7 +8,7 @@ In this build I have attempted to create a simple code base using Node.js, Expre
 
 ## The approach
 
-This code base is an ongoing project that has evolved over several builds and closely follows the [Angular Style Guide](https://github.com/johnpapa/angular-styleguide) recommended by AngularJS. Next steps for this build are to incorporate unit testing and, if applicable, a MongoDB data store.
+This code base is an ongoing project that has evolved over several builds and closely follows the [Angular Style Guide](https://github.com/johnpapa/angular-styleguide) recommended by AngularJS. Next steps for this build are to incorporate E2E tests and, if applicable, a MongoDB data store.
 
 ## See it in action
 
@@ -128,4 +128,4 @@ web-brownie/
         
 - `karma start`
     
-    Watches for file changes and re-run tests on each change
+    Watch for file changes and re-run tests on each change

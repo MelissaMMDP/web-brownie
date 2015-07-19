@@ -22,7 +22,8 @@ module.exports = function () {
         index: client + 'index.html',
         js: [
             clientApp + '**/*.module.js',
-            clientApp + '**/*.js'
+            clientApp + '**/*.js',
+            '!' + clientApp + '**/*.spec.js'
         ],
         less: client + 'styles/styles.less',
         server: server,

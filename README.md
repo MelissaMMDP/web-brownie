@@ -4,7 +4,7 @@ Named after those mischievous brownies of folklore. In folklore, a [brownie](htt
 
 ## What it's about
 
-In this build I have attempted to create a simple code base using Node.js, Express, Gulp, AngularJS and Less.js with a focus on best practices in both web development and web design.
+In this build I have attempted to create a simple code base using Node.js, Express, Karma, Jasmine, Gulp, AngularJS and Less.js with a focus on best practices in both web development and web design.
 
 ## The approach
 
@@ -49,6 +49,7 @@ web-brownie/
 │       ├── app/
 │           ├── color/
 │               ├── color.controller.js
+│               ├── color.controller.spec.js
 │               ├── color.html
 │               └── color.module.js
 │           ├── core/
@@ -57,6 +58,7 @@ web-brownie/
 │               └── core.route.js
 │           ├── home/
 │               ├── home.controller.js
+│               ├── home.controller.spec.js
 │               ├── home.html
 │               └── home.module.js
 │           ├── layout/
@@ -126,4 +128,4 @@ web-brownie/
         
 - `karma start`
     
-    Watch for file changes and re-run tests on each change
+    Watches for file changes and re-run tests on each change

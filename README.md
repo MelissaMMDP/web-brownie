@@ -12,6 +12,7 @@ This code base is an ongoing project that has evolved over several builds and cl
 
 ## See it in action
 
+- *NEW* See the Web Brownie build at [http://web-brownie.pancakeapps.com/](http://web-brownie.pancakeapps.com/)
 - [Codepen](http://codepen.io/MAustinMMDP/pen/doGbNy) 
 - [Plunker](http://embed.plnkr.co/Sog5Sp/preview)
 

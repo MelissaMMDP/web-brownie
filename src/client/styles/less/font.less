@@ -15,22 +15,22 @@
 //== font and line-height mixins
 // NOTE: line-height is unit-less to avoid poor inheritance behavior - https://developer.mozilla.org/en-US/docs/Web/CSS/line-height
 // font-size mixin
-.font-size(@font-size: @fz, @line-height: @lh) {
+.font-size(@font-size: @fz; @line-height: @lh) {
   font-size: unit((@font-size / @fz), em);
   line-height: ((@font-size / @fz) * @line-height);
 }
 
 // font-family mixin
-.font-family (@mixin, @font-family: @ff-ss-open, @font-weight: @fw, @text-align: @ta-h1-6) {
+.font-family (@mixin; @font-family: @ff-ss-open; @font-weight: @fw; @text-align: @ta-h1-6) {
   text-align: @text-align; // grid.less default left
 }
 
-.font-family (@mixin, @font-family: @ff-ss-open, @font-weight: @fw, @text-align: @ta-h1-6) when (@mixin = sans) {
+.font-family (@mixin; @font-family: @ff-ss-open; @font-weight: @fw; @text-align: @ta-h1-6) when (@mixin = sans) {
   font-family: @font-family;
   font-weight: @font-weight;
 }
 
 // line-height mixin
-.line-height(@height, @font-size: @fz) {
+.line-height(@height; @font-size: @fz) {
   line-height: unit((@height / @font-size) - ((@p * 2) / @font-size), em);
 }

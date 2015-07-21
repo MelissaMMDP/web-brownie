@@ -13,15 +13,15 @@
 //== base color function
 @color-base: hsla(@hue, (@saturation/100), (@lightness/100), @alpha);
 //== base color mixins
-.color-base(@hue: @hue, @saturation: @saturation, @lightness: @lightness, @alpha: @alpha) {
+.color-base(@hue: @hue; @saturation: @saturation; @lightness: @lightness; @alpha: @alpha) {
     color: @color-base;
 }
 
-.background-base(@hue: @hue, @saturation: @saturation, @lightness: @lightness, @alpha: @alpha) {
+.background-base(@hue: @hue; @saturation: @saturation; @lightness: @lightness; @alpha: @alpha) {
     background: @color-base;
 }
 
-.fill-base(@hue: @hue, @saturation: @saturation, @lightness: @lightness, @alpha: @alpha) {
+.fill-base(@hue: @hue; @saturation: @saturation; @lightness: @lightness; @alpha: @alpha) {
     fill: @color-base;
 }
 
@@ -29,15 +29,15 @@
 //== complementary color function
 @cc: spin(@color-base, 180);
 //== complementary color mixins
-.color-complementary(@hue: @hue, @saturation: @saturation, @lightness: @lightness, @alpha: @alpha) {
+.color-complementary(@hue: @hue; @saturation: @saturation; @lightness: @lightness; @alpha: @alpha) {
     color: @cc;
 }
 
-.background-complementary(@hue: @hue, @saturation: @saturation, @lightness: @lightness, @alpha: @alpha) {
+.background-complementary(@hue: @hue; @saturation: @saturation; @lightness: @lightness; @alpha: @alpha) {
     background: @cc;
 }
 
-.fill-complementary(@hue: @hue, @saturation: @saturation, @lightness: @lightness, @alpha: @alpha) {
+.fill-complementary(@hue: @hue; @saturation: @saturation; @lightness: @lightness; @alpha: @alpha) {
     fill: @cc;
 }
 
@@ -46,27 +46,27 @@
 @ac-one: spin(@color-base, -30);
 @ac-two: spin(@color-base, 30);
 //== analogous color mixins
-.color-analogous-one(@hue: @hue, @saturation: @saturation, @lightness: @lightness, @alpha: @alpha) {
+.color-analogous-one(@hue: @hue; @saturation: @saturation; @lightness: @lightness; @alpha: @alpha) {
     color: @ac-one;
 }
 
-.color-analogous-two(@hue: @hue, @saturation: @saturation, @lightness: @lightness, @alpha: @alpha) {
+.color-analogous-two(@hue: @hue; @saturation: @saturation; @lightness: @lightness; @alpha: @alpha) {
     color: @ac-two;
 }
 
-.background-analogous-one(@hue: @hue, @saturation: @saturation, @lightness: @lightness, @alpha: @alpha) {
+.background-analogous-one(@hue: @hue; @saturation: @saturation; @lightness: @lightness; @alpha: @alpha) {
     background: @ac-one;
 }
 
-.background-analogous-two(@hue: @hue, @saturation: @saturation, @lightness: @lightness, @alpha: @alpha) {
+.background-analogous-two(@hue: @hue; @saturation: @saturation; @lightness: @lightness; @alpha: @alpha) {
     background: @ac-two;
 }
 
-.fill-analogous-one(@hue: @hue, @saturation: @saturation, @lightness: @lightness, @alpha: @alpha) {
+.fill-analogous-one(@hue: @hue; @saturation: @saturation; @lightness: @lightness; @alpha: @alpha) {
     fill: @ac-one;
 }
 
-.fill-analogous-two(@hue: @hue, @saturation: @saturation, @lightness: @lightness, @alpha: @alpha) {
+.fill-analogous-two(@hue: @hue; @saturation: @saturation; @lightness: @lightness; @alpha: @alpha) {
     fill: @ac-two;
 }
 
@@ -75,27 +75,27 @@
 @scc-one: spin(@color-base, (180-30));
 @scc-two: spin(@color-base, (180+30));
 //== split complementary mixins
-.color-split-complementary-one(@hue: @hue, @saturation: @saturation, @lightness: @lightness, @alpha: @alpha) {
+.color-split-complementary-one(@hue: @hue; @saturation: @saturation; @lightness: @lightness; @alpha: @alpha) {
     color: @scc-one;
 }
 
-.color-split-complementary-two(@hue: @hue, @saturation: @saturation, @lightness: @lightness, @alpha: @alpha) {
+.color-split-complementary-two(@hue: @hue; @saturation: @saturation; @lightness: @lightness; @alpha: @alpha) {
     color: @scc-two;
 }
 
-.background-split-complementary-one(@hue: @hue, @saturation: @saturation, @lightness: @lightness, @alpha: @alpha) {
+.background-split-complementary-one(@hue: @hue; @saturation: @saturation; @lightness: @lightness; @alpha: @alpha) {
     background: @scc-one;
 }
 
-.background-split-complementary-two(@hue: @hue, @saturation: @saturation, @lightness: @lightness, @alpha: @alpha) {
+.background-split-complementary-two(@hue: @hue; @saturation: @saturation; @lightness: @lightness; @alpha: @alpha) {
     background: @scc-two;
 }
 
-.fill-split-complementary-one(@hue: @hue, @saturation: @saturation, @lightness: @lightness, @alpha: @alpha) {
+.fill-split-complementary-one(@hue: @hue; @saturation: @saturation; @lightness: @lightness; @alpha: @alpha) {
     fill: @scc-one;
 }
 
-.fill-split-complementary-two(@hue: @hue, @saturation: @saturation, @lightness: @lightness, @alpha: @alpha) {
+.fill-split-complementary-two(@hue: @hue; @saturation: @saturation; @lightness: @lightness; @alpha: @alpha) {
     fill: @scc-two;
 }
 
@@ -104,27 +104,27 @@
 @tc-one: spin(@color-base, -120);
 @tc-two: spin(@color-base, 120);
 //== triadic color mixins
-.color-triadic-one(@hue: @hue, @saturation: @saturation, @lightness: @lightness, @alpha: @alpha) {
+.color-triadic-one(@hue: @hue; @saturation: @saturation; @lightness: @lightness; @alpha: @alpha) {
     color: @tc-one;
 }
 
-.color-triadic-two(@hue: @hue, @saturation: @saturation, @lightness: @lightness, @alpha: @alpha) {
+.color-triadic-two(@hue: @hue; @saturation: @saturation; @lightness: @lightness; @alpha: @alpha) {
     color: @tc-two;
 }
 
-.background-triadic-one(@hue: @hue, @saturation: @saturation, @lightness: @lightness, @alpha: @alpha) {
+.background-triadic-one(@hue: @hue; @saturation: @saturation; @lightness: @lightness; @alpha: @alpha) {
     background: @tc-one;
 }
 
-.background-triadic-two(@hue: @hue, @saturation: @saturation, @lightness: @lightness, @alpha: @alpha) {
+.background-triadic-two(@hue: @hue; @saturation: @saturation; @lightness: @lightness; @alpha: @alpha) {
     background: @tc-two;
 }
 
-.fill-triadic-one(@hue: @hue, @saturation: @saturation, @lightness: @lightness, @alpha: @alpha) {
+.fill-triadic-one(@hue: @hue; @saturation: @saturation; @lightness: @lightness; @alpha: @alpha) {
     fill: @tc-one;
 }
 
-.fill-triadic-two(@hue: @hue, @saturation: @saturation, @lightness: @lightness, @alpha: @alpha) {
+.fill-triadic-two(@hue: @hue; @saturation: @saturation; @lightness: @lightness; @alpha: @alpha) {
     fill: @tc-two;
 }
 
@@ -134,27 +134,27 @@
 @bdw: 1;
 @bdc: @color-base;
 //== border mixins
-// add border on all sides, e.g., .border(all, 2, dotted, red); result = border: 0.125em dotted red;
-.border (@mixin, @border-width: @bdw, @border-style: @bds, @border-color: @bdc, @border-top-style: @bds, @border-right-style: @bds, @border-bottom-style: @bds, @border-left-style: @bds, @border-top-color: @bdc, @border-right-color: @bdc, @border-bottom-color: @bdc, @border-left-color: @bdc) when (@mixin =all) {
+// add border on all sides, e.g., .border(all; 2; dotted; red); result = border: 0.125em dotted red;
+.border (@mixin; @border-width: @bdw; @border-style: @bds; @border-color: @bdc; @border-top-style: @bds; @border-right-style: @bds; @border-bottom-style: @bds; @border-left-style: @bds; @border-top-color: @bdc; @border-right-color: @bdc; @border-bottom-color: @bdc; @border-left-color: @bdc) when (@mixin =all) {
     border: unit((@border-width / @fz), em) @border-style @border-color;
 }
 
-// add top border, e.g., .border(@mixin: top, @border-top-color: red); result = border-top: 0.0625em solid red;
-.border (@mixin, @border-width: @bdw, @border-style: @bds, @border-color: @bdc, @border-top-style: @bds, @border-right-style: @bds, @border-bottom-style: @bds, @border-left-style: @bds, @border-top-color: @bdc, @border-right-color: @bdc, @border-bottom-color: @bdc, @border-left-color: @bdc) when (@mixin =top) {
+// add top border, e.g., .border(@mixin: top; @border-top-color: red); result = border-top: 0.0625em solid red;
+.border (@mixin; @border-width: @bdw; @border-style: @bds; @border-color: @bdc; @border-top-style: @bds; @border-right-style: @bds; @border-bottom-style: @bds; @border-left-style: @bds; @border-top-color: @bdc; @border-right-color: @bdc; @border-bottom-color: @bdc; @border-left-color: @bdc) when (@mixin =top) {
     border-top: unit((@border-width / @fz), em) @border-top-style @border-top-color;
 }
 
-// add right border, e.g., .border(@mixin: right, @border-right-color: red); result = border-right: 0.0625em solid red;
-.border (@mixin, @border-width: @bdw, @border-style: @bds, @border-color: @bdc, @border-top-style: @bds, @border-right-style: @bds, @border-bottom-style: @bds, @border-left-style: @bds, @border-top-color: @bdc, @border-right-color: @bdc, @border-bottom-color: @bdc, @border-left-color: @bdc) when (@mixin =right) {
+// add right border, e.g., .border(@mixin: right; @border-right-color: red); result = border-right: 0.0625em solid red;
+.border (@mixin; @border-width: @bdw; @border-style: @bds; @border-color: @bdc; @border-top-style: @bds; @border-right-style: @bds; @border-bottom-style: @bds; @border-left-style: @bds; @border-top-color: @bdc; @border-right-color: @bdc; @border-bottom-color: @bdc; @border-left-color: @bdc) when (@mixin =right) {
     border-right: unit((@border-width / @fz), em) @border-right-style @border-right-color;
 }
 
-// add bottom border, e.g., .border(@mixin: bottom, @border-bottom-color: red); result = border-bottom: 0.0625em solid red;
-.border (@mixin, @border-width: @bdw, @border-style: @bds, @border-color: @bdc, @border-top-style: @bds, @border-right-style: @bds, @border-bottom-style: @bds, @border-left-style: @bds, @border-top-color: @bdc, @border-right-color: @bdc, @border-bottom-color: @bdc, @border-left-color: @bdc) when (@mixin =bottom) {
+// add bottom border, e.g., .border(@mixin: bottom; @border-bottom-color: red); result = border-bottom: 0.0625em solid red;
+.border (@mixin; @border-width: @bdw; @border-style: @bds; @border-color: @bdc; @border-top-style: @bds; @border-right-style: @bds; @border-bottom-style: @bds; @border-left-style: @bds; @border-top-color: @bdc; @border-right-color: @bdc; @border-bottom-color: @bdc; @border-left-color: @bdc) when (@mixin =bottom) {
     border-bottom: unit((@border-width / @fz), em) @border-bottom-style @border-bottom-color;
 }
 
-// add left border, e.g., .border(@mixin: left, @border-width:2, @border-left-color:green); result = border-left: 0.125em solid green;
-.border (@mixin, @border-width: @bdw, @border-style: @bds, @border-color: @bdc, @border-top-style: @bds, @border-right-style: @bds, @border-bottom-style: @bds, @border-left-style: @bds, @border-top-color: @bdc, @border-right-color: @bdc, @border-bottom-color: @bdc, @border-left-color: @bdc) when (@mixin =left) {
+// add left border, e.g., .border(@mixin: left; @border-width:2; @border-left-color:green); result = border-left: 0.125em solid green;
+.border (@mixin; @border-width: @bdw; @border-style: @bds; @border-color: @bdc; @border-top-style: @bds; @border-right-style: @bds; @border-bottom-style: @bds; @border-left-style: @bds; @border-top-color: @bdc; @border-right-color: @bdc; @border-bottom-color: @bdc; @border-left-color: @bdc) when (@mixin =left) {
     border-left: unit((@border-width / @fz), em) @border-left-style @border-left-color;
 }

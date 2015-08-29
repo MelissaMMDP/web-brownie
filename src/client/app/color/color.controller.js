@@ -12,4 +12,4 @@
         vm.headingOne = 'Color Scheme Framework';
     }
 
-}());
+})();

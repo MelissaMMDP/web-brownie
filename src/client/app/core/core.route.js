@@ -16,9 +16,9 @@
                 })
                 .state('color', {
                     url: '/color',
-                    templateUrl: 'app/color/color.html',
                     controller: 'Color',
-                    controllerAs: 'color'
+                    controllerAs: 'color',
+                    templateUrl: 'app/color/color.html'
                 })
                 .state('404', {
                     url: '/404',
@@ -26,4 +26,4 @@
                 });
 
         });
-}());
+})();

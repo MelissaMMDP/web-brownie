@@ -147,7 +147,7 @@ gulp.task('optimize', ['inject', 'fonts', 'images'], function () {
         .pipe(assets) // gather all assets from the html with useref
         // get the css
         .pipe(cssFilter)
-        .pipe($.csso())
+        .pipe($.minifyCss())
         .pipe(cssFilter.restore())
         // get the vendor javascript
         .pipe(jsLibFilter)

@@ -36,12 +36,12 @@ gulp.task('vet', function () {
  * compile less to css
  * @return {Stream}
  */
-gulp.task('styles', ['clean-styles'], function () {
-    log('compiling Less --> CSS');
+gulp.task('styles', ['clean-styles'], function() {
+    log('Compiling Less --> CSS');
 
     return gulp
         .src(config.less)
-        .pipe($.plumber())
+        .pipe($.plumber()) // exit gracefully if something fails after this
         .pipe($.less())
         .pipe($.autoprefixer({
             browsers: ['last 2 version', '> 5%']
@@ -72,13 +72,6 @@ gulp.task('images', ['clean-images'], function () {
         .src(config.images)
         .pipe($.imagemin({optimizationLevel: 4}))
         .pipe(gulp.dest(config.build + 'images'));
-});
-
-/**
- * watch less files
- */
-gulp.task('less-watcher', function () {
-    gulp.watch(config.less, ['styles']);
 });
 
 /**
@@ -125,7 +118,7 @@ gulp.task('inject', ['wiredep', 'styles', 'templatecache'], function () {
 });
 
 /**
- * optimize all files, move to a build folder,
+ * optimize all files, move to the build folder,
  * and inject them into the new index.html
  * @return {Stream}
  */
@@ -227,22 +220,34 @@ gulp.task('serve-build', ['optimize'], function () {
 //////////
 
 /**
+ * when files change, log it
+ * @param  {Object} event - event that fired
+ */
+function changeEvent(event) {
+    var srcPattern = new RegExp('/.*(?=/' + config.source + ')/');
+    log('File ' + event.path.replace(srcPattern, '') + ' ' + event.type);
+}
+
+/**
+ * delete all files in a given path
+ * @param  {Array}   path - array of paths to delete
+ * @param  {Function} done - callback when complete
+ */
+function clean(path, done) {
+    log('Cleaning: ' + $.util.colors.blue(path));
+    del(path, done);
+}
+
+/**
  * serve the code
  * @param  {Boolean} isDev - dev or build mode
  */
 function serve(isDev) {
-    var nodeOptions = {
-        script: config.nodeServer,
-        delayTime: 1,
-        env: {
-            'PORT': port,
-            'NODE_ENV': isDev ? 'dev' : 'build'
-        },
-        watch: [config.server]
-    };
+
+    var nodeOptions = getNodeOptions(isDev);
 
     return $.nodemon(nodeOptions)
-        .on('restart', function (ev) {
+        .on('restart', ['vet'], function (ev) {
             log('*** nodemon restarted');
             log('files changed:\n' + ev);
             setTimeout(function () {
@@ -262,13 +267,16 @@ function serve(isDev) {
         });
 }
 
-/**
- * when files change, log it
- * @param  {Object} event - event that fired
- */
-function changeEvent(event) {
-    var srcPattern = new RegExp('/.*(?=/' + config.source + ')/');
-    log('File ' + event.path.replace(srcPattern, '') + ' ' + event.type);
+function getNodeOptions(isDev) {
+    return {
+        script: config.nodeServer,
+        delayTime: 1,
+        env: {
+            'PORT': port,
+            'NODE_ENV': isDev ? 'dev' : 'build'
+        },
+        watch: [config.server]
+    };
 }
 
 /**
@@ -286,14 +294,10 @@ function startBrowserSync(isDev) {
     // if build: watches the files, builds, and restarts browser-sync.
     if (isDev) {
         gulp.watch(config.less, ['styles'])
-            .on('change', function (event) {
-                changeEvent(event);
-            });
+            .on('change', changeEvent);
     } else {
         gulp.watch([config.less, config.js, config.html], ['optimize', browserSync.reload])
-            .on('change', function (event) {
-                changeEvent(event);
-            });
+            .on('change', changeEvent);
     }
 
     var options = {
@@ -312,23 +316,13 @@ function startBrowserSync(isDev) {
         },
         injectChanges: true,
         logFileChanges: true,
-        logLevel: 'debug',
-        logPrefix: 'gulp-patterns',
+        logLevel: 'info',
+        logPrefix: 'web-brownie',
         notify: true,
         reloadDelay: 1000
     };
 
     browserSync(options);
-}
-
-/**
- * delete all files in a given path
- * @param  {Array}   path - array of paths to delete
- * @param  {Function} done - callback when complete
- */
-function clean(path, done) {
-    log('Cleaning: ' + $.util.colors.blue(path));
-    del(path, done);
 }
 
 /**

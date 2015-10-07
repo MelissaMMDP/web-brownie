@@ -1,4 +1,5 @@
 module.exports = function () {
+    var build = './build/';
     var client = './src/client/';
     var clientApp = client + 'app/';
     var server = './src/server/';
@@ -12,13 +13,13 @@ module.exports = function () {
             './src/**/*.js',
             './*.js'
         ],
-        build: './build/',
+        build: build,
+        buildHtml: build + '**/*.html',
+        buildJs: build + 'js/**/*.js',
         client: client,
         css: temp + 'styles.css',
-        fonts: client + 'fonts/**/*.*',
         html: clientApp + '**/*.html',
-        htmltemplates: clientApp + '**/*.html',
-        images: client + 'images/**/*.*',
+        htmlTemplates: clientApp + '**/*.html',
         index: client + 'index.html',
         js: [
             clientApp + '**/*.module.js',
@@ -30,8 +31,10 @@ module.exports = function () {
         specs: clientApp + '**/*.spec.js',
         source: 'src/',
         temp: temp,
+        tempCss: temp + '**/*.css',
+        tempJs: temp + '**/*.js',
 
-        /* optimize files*/
+        /* optimized files */
         optimized: {
             app: 'app.js',
             lib: 'lib.js'

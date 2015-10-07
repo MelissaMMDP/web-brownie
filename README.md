@@ -2,19 +2,28 @@
 
 Named after those mischievous brownies of folklore. In folklore, a [brownie](https://en.wikipedia.org/wiki/Brownie_(folklore)) resembles the hob, similar to a hobgoblin. Brownies are said to inhabit houses and aid in tasks around the house (in this case a web development task). However, they do not like to be seen and will only work at night, traditionally in exchange for small gifts of food. Among food, they especially enjoy porridge and honey.
 
-## What it's about
+## Table of Contents
 
-In this build I have attempted to create a simple code base using Node.js, Express, Karma, Jasmine, Gulp, AngularJS and Less.js with a focus on best practices in both web development and web design.
+  1. [About](#about)
+  1. [Example](#example)
+  1. [Prerequisites](#prerequisites)
+  1. [Installation](#installation)
+  1. [Contents](#contents)
+  1. [Tasks](#tasks)
+  1. [Contributing](#contributing)
+  1. [License](#license)
 
-## The approach
+## About
 
-This code base is an ongoing project that has evolved over several builds and closely follows the [Angular Style Guide](https://github.com/johnpapa/angular-styleguide) recommended by AngularJS. Next steps for this build are to incorporate E2E tests and, if applicable, a MongoDB data store.
+This is a simple application built using Node.js, Express, Karma, Jasmine, Gulp, AngularJS and Less.js with a focus on best practices in both web development and web design. This is an open source project that closely follows the [Angular Style Guide](https://github.com/johnpapa/angular-styleguide) recommended by AngularJS. Next step is to incorporate E2E tests.
 
-## See it in action
+## Example
 
 - **NEW** See the Web Brownie build at [http://web-brownie.pancakeapps.com/](http://web-brownie.pancakeapps.com/)
 - [Codepen](http://codepen.io/MAustinMMDP/pen/doGbNy) 
 - [Plunker](http://embed.plnkr.co/Sog5Sp/preview)
+
+**[Back to top](#table-of-contents)**
 
 ## Prerequisites
 
@@ -25,6 +34,8 @@ This code base is an ongoing project that has evolved over several builds and cl
     ```bash
     npm install -g bower gulp
     ```
+
+**[Back to top](#table-of-contents)**    
     
 ## Installation
 
@@ -38,8 +49,10 @@ This code base is an ongoing project that has evolved over several builds and cl
     ```bash
     bower install
     ```
+ 
+**[Back to top](#table-of-contents)**    
     
-## What's included
+## Contents
 
 Within the download you'll find the following directories and files, logically grouping common assets. You'll see something like this:
 
@@ -63,7 +76,9 @@ web-brownie/
 │               ├── home.html
 │               └── home.module.js
 │           ├── layout/
+│               ├── footer.directive.js
 │               ├── footer.html
+│               ├── header.directive.js
 │               ├── header.html
 │               └── layout.module.js
 │           └── app.module.js
@@ -73,7 +88,8 @@ web-brownie/
 │               ├── color.less
 │               ├── font.less
 │               ├── grid.less
-│               └── import.less
+│               ├── import.less
+│               └── layout.less
 │           └── styles.less
 │       └── index.html
 │   ├── server/
@@ -92,30 +108,17 @@ web-brownie/
 └── README.md
 ```
 
-## Help
+**[Back to top](#table-of-contents)**
 
-- `gulp`
-
-    Displays a list of available gulp tasks
-    
-## Vet your code
+## Tasks
 
 - `gulp vet`
 
     Analyze all project root and src JavaScript with JSHint and JSCS
 
-## Cleaning Up
-
 - `gulp clean`
 
-    Removes the build and .tmp folders. Alternatively, you can run the following tasks to only target specific file types:
-    
-    `gulp clean fonts`,
-    `gulp clean images`,
-    `gulp clean styles`,
-    `gulp clean code`  
- 
-## Serving the Code    
+    Removes the build and .tmp folders
     
 - `gulp serve-dev`
 
@@ -124,9 +127,51 @@ web-brownie/
 - `gulp serve-build`
     
     The development code is optimized and placed in the build folder then launched in a browser using a Node.js and Express web server. On save of code changes the files will be optimized and browser-sync will reload the browser. 
-
-## Karma Testing    
         
 - `karma start`
     
     Watch for file changes and re-run tests on each change
+
+**[Back to top](#table-of-contents)**
+
+## Contributing
+
+Open an issue first to discuss potential changes/additions. If you have questions, feel free to leave them as issues in the repository. If you find a typo, create a Pull Request (PR).
+
+*By contributing to this repository you are agreeing to make your content available subject to the license of this repository.*
+
+### Process
+    1. Discuss the changes in a GitHub issue.
+    2. Open a Pull Request (PR), reference the issue, and explain the change and why it adds value.
+    3. The PR will be evaluated and either merged or declined.
+
+**[Back to top](#table-of-contents)**
+
+## License
+
+Attributions are appreciated.
+
+### Copyright
+
+Copyright (c) 2015 Melissa Austin
+
+### (The MIT License)
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+**[Back to top](#table-of-contents)**

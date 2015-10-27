@@ -1,11 +1,10 @@
-/*jshint node:true*/
+/** jshint node:true */
 'use strict';
 
-var express = require('express');
-var app = express();
-var port = process.env.PORT || 8001;
-
-var environment = process.env.NODE_ENV;
+var environment = process.env.NODE_ENV,
+    express = require('express'),
+    app = express(),
+    port = process.env.PORT || 8001;
 
 console.log('About to crank up node');
 console.log('PORT=' + port);
@@ -26,7 +25,7 @@ switch (environment) {
         break;
 }
 
-app.listen(port, function() {
+app.listen(port, function () {
     console.log('Express server listening on port ' + port);
     console.log('env = ' + app.get('env') +
         '\n__dirname = ' + __dirname +

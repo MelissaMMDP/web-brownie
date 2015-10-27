@@ -1,11 +1,10 @@
-var args = require('yargs').argv;
-var browserSync = require('browser-sync');
-var config = require('./gulp.config')();
-var del = require('del');
-var gulp = require('gulp');
-var $ = require('gulp-load-plugins')({lazy: true});
-
-var port = process.env.PORT || config.defaultPort;
+var $ = require('gulp-load-plugins')({lazy: true}),
+    args = require('yargs').argv,
+    browserSync = require('browser-sync'),
+    config = require('./gulp.config')(),
+    del = require('del'),
+    gulp = require('gulp'),
+    port = process.env.PORT || config.defaultPort;
 
 /**
  * vet the code and create coverage report
@@ -33,8 +32,8 @@ gulp.task('vet', function () {
 gulp.task('wiredep', function () {
     log('Wiring the bower dependencies into the html');
 
-    var wiredep = require('wiredep').stream;
-    var options = config.getWiredepDefaultOptions();
+    var wiredep = require('wiredep').stream,
+        options = config.getWiredepDefaultOptions();
 
     return gulp
         .src(config.index)
@@ -55,7 +54,7 @@ gulp.task('clean-styles', function (done) {
  * compile less to css
  * @return {Stream}
  */
-gulp.task('styles', ['clean-styles'], function() {
+gulp.task('styles', ['clean-styles'], function () {
     log('Compiling Less --> CSS');
 
     return gulp
@@ -122,11 +121,11 @@ gulp.task('serve-dev', ['inject'], function () {
 gulp.task('optimize', ['inject'], function () {
     log('Optimizing the javascript, css, html');
 
-    var assets = $.useref.assets({searchPath: './'});
-    var templateCache = config.temp + config.templateCache.file;
-    var cssFilter = $.filter('**/*.css');
-    var jsLibFilter = $.filter('**/' + config.optimized.lib);
-    var jsAppFilter = $.filter('**/' + config.optimized.app);
+    var assets = $.useref.assets({searchPath: './'}),
+        templateCache = config.temp + config.templateCache.file,
+        cssFilter = $.filter('**/*.css'),
+        jsLibFilter = $.filter('**/' + config.optimized.lib),
+        jsAppFilter = $.filter('**/' + config.optimized.app);
 
     return gulp
         .src(config.index)
@@ -148,7 +147,7 @@ gulp.task('optimize', ['inject'], function () {
         .pipe(jsLibFilter)
         .pipe($.uglify())
         .pipe(jsLibFilter.restore())
-
+        // Apply the concat and file replacement with useref
         .pipe(assets.restore())
         .pipe($.useref())
         .pipe(gulp.dest(config.build));

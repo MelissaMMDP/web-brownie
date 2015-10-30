@@ -1,6 +1,6 @@
 # Web Brownie
 
-Named after those mischievous brownies of folklore. In folklore, a [brownie](https://en.wikipedia.org/wiki/Brownie_(folklore)) resembles the hob, similar to a hobgoblin. Brownies are said to inhabit houses and aid in tasks around the house (in this case a web development task). However, they do not like to be seen and will only work at night, traditionally in exchange for small gifts of food. Among food, they especially enjoy porridge and honey.
+Named after those mischievous brownies of folklore. In folklore, a [brownie](https://en.wikipedia.org/wiki/Brownie_(folklore)) resembles the hob, similar to a hobgoblin. Brownies are said to inhabit houses and aid in tasks around the house. However, they do not like to be seen and will only work at night, traditionally in exchange for small gifts of food.
 
 ## Table of Contents
 
@@ -19,9 +19,9 @@ This is a simple application built using Node.js, Express, Karma, Jasmine, Gulp,
 
 ## Example
 
-- **NEW** See the Web Brownie build at [http://web-brownie.pancakeapps.com/](http://web-brownie.pancakeapps.com/)
-- [Codepen](http://codepen.io/MAustinMMDP/pen/doGbNy) 
-- [Plunker](http://embed.plnkr.co/Sog5Sp/preview)
+- [Web Brownie](http://web-brownie.pancakeapps.com/) - Live demo
+- [Codepen](http://codepen.io/MAustinMMDP/pen/doGbNy) - Web Brownie on Codepen
+- [Plunker](http://embed.plnkr.co/Sog5Sp/preview) - Web Brownie Color.less in Action
 
 **[Back to top](#table-of-contents)**
 

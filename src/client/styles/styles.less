@@ -98,7 +98,6 @@ a {
 
 // ---------- NAVIGATION
 .global-nav {
-    .grid(max);
     li {
         float: left;
         a {
@@ -123,12 +122,12 @@ a {
 
 //== shell.html
 main {
+    .grid(min);
     .grid(max);
     .padding(mix; @padding-top: 71; @padding-right: 0; @padding-bottom: 0; @padding-left: 0);
 }
 
 .about {
-    .grid(max);
     article {
         .column(12);
         .padding(mix; @padding-bottom: 40);
@@ -141,7 +140,6 @@ main {
 //== color.html
 
 .center-grid {
-    .grid(max);
     .padding(short; @padding-y: 0);
     p {
         .column(12; @text-align: center);
@@ -149,7 +147,6 @@ main {
 }
 
 .color-grid {
-    .grid(max);
     article {
         .column(12);
         .padding(short; @padding-y: 0; @padding-x: 15);

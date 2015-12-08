@@ -25,18 +25,23 @@
 
 // GRID
 //== grid mixins
-// full width grid - always included
-.grid (@mixin; @max-width: @maw) {
+// included in all grid mixins
+.grid (@mixin; @min-width: @miw; @max-width: @maw) {
   margin: 0 auto;
   width: 100%;
   .clearfix;
 }
 
 // full width grid mixin, e.g., .grid(full); result = margin: 0 auto; width: 100%;
-.grid (@mixin; @max-width: @maw) when (@mixin = full) {}
+.grid (@mixin; @min-width: @miw; @max-width: @maw) when (@mixin = full) {}
+
+// min width grid mixin (mobile first approach), e.g., .grid(min; @min-width: 320); result = margin: 0 auto; width: 100%; min-width: 20em;
+.grid (@mixin; @min-width: @miw; @max-width: @maw) when (@mixin = min) {
+    min-width: unit((@min-width / @fz), em);
+}
 
 // max width grid mixin, e.g., .grid(max; @max-width: 960); result = margin: 0 auto; width: 100%; max-width: 60em;
-.grid (@mixin; @max-width: @maw) when (@mixin = max) {
+.grid (@mixin; @max-width: @maw; @min-width: @miw) when (@mixin = max) {
   max-width: unit((@max-width / @fz), em);
 }
 
@@ -45,6 +50,7 @@
 @fl: left;
 @ta: left;
 //== column mixin
+// column, e.g., .column(6); result = float: left; text-align: left; width: 50%;
 .column(@span; @float: @fl; @font-size: @fz; @text-align: @ta) {
   float: @float;
   text-align: @text-align;

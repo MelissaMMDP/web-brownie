@@ -89,7 +89,7 @@ gulp.task('templatecache', ['clean-code'], function () {
 
     return gulp
         .src(config.htmlTemplates)
-        .pipe($.minifyHtml({empty: true}))
+        .pipe($.htmlmin({empty: true}))
         .pipe($.angularTemplatecache(
             config.templateCache.file,
             config.templateCache.options
@@ -121,8 +121,7 @@ gulp.task('serve-dev', ['inject'], function () {
 gulp.task('optimize', ['inject'], function () {
     log('Optimizing the javascript, css, html');
 
-    var assets = $.useref.assets({searchPath: './'}),
-        templateCache = config.temp + config.templateCache.file,
+    var templateCache = config.temp + config.templateCache.file,
         cssFilter = $.filter('**/*.css'),
         jsLibFilter = $.filter('**/' + config.optimized.lib),
         jsAppFilter = $.filter('**/' + config.optimized.app);
@@ -133,10 +132,10 @@ gulp.task('optimize', ['inject'], function () {
         .pipe($.inject(gulp.src(templateCache, {read: false}), {
             starttag: '<!-- inject:templates:js -->'
         }))
-        .pipe(assets) // gather all assets from the html with useref
+        .pipe($.useref({searchPath: './'}))
         // get the css
         .pipe(cssFilter)
-        .pipe($.minifyCss())
+        .pipe($.cleanCss())
         .pipe(cssFilter.restore())
         // get the custom javascript
         .pipe(jsAppFilter)
@@ -147,9 +146,6 @@ gulp.task('optimize', ['inject'], function () {
         .pipe(jsLibFilter)
         .pipe($.uglify())
         .pipe(jsLibFilter.restore())
-        // Apply the concat and file replacement with useref
-        .pipe(assets.restore())
-        .pipe($.useref())
         .pipe(gulp.dest(config.build));
 });
 

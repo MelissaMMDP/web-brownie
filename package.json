@@ -10,7 +10,6 @@
     "url": "https://github.com/MAustinMMDP/web-brownie.git"
   },
   "dependencies": {
-    "body-parser": "^1.8.2",
     "express": "^4.9.3"
   },
   "devDependencies": {

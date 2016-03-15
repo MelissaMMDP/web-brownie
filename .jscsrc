@@ -1,5 +1,5 @@
 {
-    "excludeFiles": "node_modules/**",
+    "excludeFiles": ["node_modules/**"],
 
     "requireCurlyBraces": [
         "if",
@@ -63,7 +63,6 @@
     "disallowCommaBeforeLineBreak": null,
     "disallowDanglingUnderscores": null,
     "disallowEmptyBlocks": null,
-    "disallowMultipleLineStrings": null,
     "disallowTrailingComma": null,
     "requireCommaBeforeLineBreak": null,
     "requireDotNotation": null,

@@ -10,7 +10,7 @@
         return {
             templateUrl: 'app/layout/footer.html',
             restrict: 'A'
-        }
+        };
     }
 
 }());

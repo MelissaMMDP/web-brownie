@@ -64,7 +64,7 @@ web-brownie/
 │           ├── core/
 │               ├── 404.html
 │               ├── core.module.js
-│               └── core.route.js
+│               └── core.routes.js
 │           ├── home/
 │               ├── home.controller.js
 │               ├── home.controller.spec.js

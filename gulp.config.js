@@ -4,15 +4,17 @@ module.exports = function () {
         clientApp = client + 'app/',
         server = './src/server/',
         temp = './.tmp/',
-        wiredep = require('wiredep'),
-
-        bowerFiles = wiredep({devDependencies: true})['js'],
 
         config = {
             /* file paths */
             alljs: [
                 './src/**/*.js',
                 './*.js'
+            ],
+            angular: [
+                './node_modules/angular/angular.js',
+                './node_modules/angular-sanitize/angular-sanitize.js',
+                './node_modules/angular-ui-router/release/angular-ui-router.js'
             ],
             build: build,
             buildHtml: build + '**/*.html',
@@ -54,27 +56,11 @@ module.exports = function () {
             /* browser-sync */
             browserReloadDelay: 1000,
 
-            /* Bower and NPM locations */
-            bower: {
-                json: require('./bower.json'),
-                directory: './bower_components',
-                ignorePath: '../..'
-            },
-
             /* node settings */
             defaultPort: 8001,
             nodeServer: './src/server/app.js'
 
         };
-
-    config.getWiredepDefaultOptions = function () {
-        var options = {
-            bowerJson: config.bower.json,
-            directory: config.bower.directory,
-            ignorePath: config.bower.ignorePath
-        };
-        return options;
-    };
 
     /* karma settings */
     config.karma = getKarmaOptions();
@@ -86,7 +72,7 @@ module.exports = function () {
     function getKarmaOptions() {
         var options = {
             files: [].concat(
-                bowerFiles,
+                config.angular,
                 config.specs,
                 clientApp + '**/*.module.js',
                 clientApp + '**/*.js',

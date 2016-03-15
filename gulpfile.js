@@ -26,18 +26,17 @@ gulp.task('vet', function () {
 });
 
 /**
- * wire-up the bower dependencies
+ * wire-up the dependencies
  * @return {Stream}
  */
 gulp.task('wiredep', function () {
-    log('Wiring the bower dependencies into the html');
-
-    var wiredep = require('wiredep').stream,
-        options = config.getWiredepDefaultOptions();
+    log('Wiring the dependencies into the html');
 
     return gulp
         .src(config.index)
-        .pipe(wiredep(options))
+        .pipe($.inject(gulp.src(config.angular), {
+            starttag: '<!-- inject:angular -->'
+        }))
         .pipe($.inject(gulp.src(config.js)))
         .pipe(gulp.dest(config.client));
 });

@@ -2,6 +2,7 @@ module.exports = function () {
     var build = './build/',
         client = './src/client/',
         clientApp = client + 'app/',
+        nodeModules = './node_modules/',
         server = './src/server/',
         temp = './.tmp/',
 
@@ -12,9 +13,9 @@ module.exports = function () {
                 './*.js'
             ],
             angular: [
-                './node_modules/angular/angular.js',
-                './node_modules/angular-sanitize/angular-sanitize.js',
-                './node_modules/angular-ui-router/release/angular-ui-router.js'
+                nodeModules + 'angular/angular.js',
+                nodeModules + 'angular-sanitize/angular-sanitize.js',
+                nodeModules + 'angular-ui-router/release/angular-ui-router.js'
             ],
             build: build,
             buildHtml: build + '**/*.html',
@@ -67,11 +68,13 @@ module.exports = function () {
 
     return config;
 
-    ////////////////
+    ////////// Functions
 
     function getKarmaOptions() {
-        var options = {
+        return {
             files: [].concat(
+                nodeModules + 'angular/angular.js',
+                nodeModules + 'angular-mocks/angular-mocks.js',
                 config.angular,
                 config.specs,
                 clientApp + '**/*.module.js',
@@ -81,6 +84,5 @@ module.exports = function () {
             exclude: [],
             preprocessors: {}
         };
-        return options;
     }
 };

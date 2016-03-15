@@ -15,7 +15,7 @@ Named after those mischievous brownies of folklore. In folklore, a [brownie](htt
 
 ## About
 
-This is a simple application built using Node.js, Express, Karma, Jasmine, Gulp, AngularJS and Less.js with a focus on best practices in both web development and web design. This is an open source project that closely follows the [Angular Style Guide](https://github.com/johnpapa/angular-styleguide) recommended by AngularJS. Next step is to incorporate E2E tests.
+This is a simple application built using Node.js, Express, Karma, Jasmine, Gulp, AngularJS and Less.js with a focus on best practices in both web development and web design. This is an open source project that closely follows the [Angular Style Guide](https://github.com/johnpapa/angular-styleguide) recommended by AngularJS.
 
 ## Example
 
@@ -29,10 +29,10 @@ This is a simple application built using Node.js, Express, Karma, Jasmine, Gulp,
 
 1. Install [Node.js](http://nodejs.org)
 
-2. Install these NPM packages globally
+2. Install the gulp package globally
 
     ```bash
-    npm install -g bower gulp
+    npm install -g gulp
     ```
 
 **[Back to top](#table-of-contents)**    
@@ -40,14 +40,9 @@ This is a simple application built using Node.js, Express, Karma, Jasmine, Gulp,
 ## Installation
 
 - Clone the repo: `git clone https://github.com/MAustinMMDP/web-brownie.git`.
-- Install the following from within the project folder:
+- Install npm from within the project folder:
     ```bash
     npm install
-    ```
-    then
-    
-    ```bash
-    bower install
     ```
  
 **[Back to top](#table-of-contents)**    
@@ -77,14 +72,15 @@ web-brownie/
 │               └── home.module.js
 │           ├── layout/
 │               ├── footer.directive.js
+│               ├── footer.directive.spec.js
 │               ├── footer.html
 │               ├── header.directive.js
+│               ├── header.directive.spec.js
 │               ├── header.html
 │               └── layout.module.js
 │           └── app.module.js
 │       ├── styles/
 │           ├── less/
-│               ├── animate.less
 │               ├── color.less
 │               ├── font.less
 │               ├── grid.less
@@ -94,13 +90,11 @@ web-brownie/
 │       └── index.html
 │   ├── server/
 │       └── app.js
-├── .bowerrc
 ├── .editorconfig
 ├── .gitignore
 ├── .jscsrc
 ├── .jshintrc
-├── bower.json
-├── gulp.config.json
+├── gulp.config.js
 ├── gulpfile.js
 ├── karma.conf.js
 ├── LICENSE

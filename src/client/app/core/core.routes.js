@@ -10,7 +10,7 @@
         })
         .config(function ($stateProvider, $urlRouterProvider) {
 
-            $urlRouterProvider.otherwise('/404');
+            $urlRouterProvider.otherwise('/home');
 
             $stateProvider
                 .state('home', {

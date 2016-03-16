@@ -1,6 +1,6 @@
 @import "less/import";
 
-// ---------- GLOBAL Styles
+// ---------- GENERAL Styles
 html {
     .box-sizing; // !important - grid
     font-size: 100%;
@@ -75,48 +75,16 @@ a {
     }
 }
 
-// ---------- NAVIGATION
-.global-nav {
-    li {
-        float: left;
-        a {
-            display: block;
-            .padding(short; @padding-y: 14; @padding-x: 15);
-            &:link, &:visited {
-                .color-complementary;
-            }
-            &:hover {
-                .background-complementary;
-                .color-complementary(@lightness: 100);
-            }
-            &:focus {
-                .background-complementary;
-                .color-complementary(@lightness: 100);
-            }
-        }
-    }
-}
+// ---------- PAGE SPECIFIC Styles
 
-// ---------- PAGE SPECIFIC STYLES
-
-//== home.html
+//== index.html
 main {
     .grid(min);
     .grid(max);
     .padding(mix; @padding-top: 71; @padding-right: 0; @padding-bottom: 0; @padding-left: 0);
 }
 
-.about {
-    article {
-        .column(12);
-        .padding(mix; @padding-bottom: 40);
-        @media @media-lg {
-            .column(4);
-        }
-    }
-}
-
-//== color.html
+//== app/color/color.html
 
 .center-grid {
     .padding(short; @padding-y: 0);
@@ -206,4 +174,37 @@ main {
 
 .bgc-tc-two {
     .background-triadic-two;
+}
+
+//== app/home/home.html
+.about {
+    article {
+        .column(12);
+        .padding(mix; @padding-bottom: 40);
+        @media @media-lg {
+            .column(4);
+        }
+    }
+}
+
+//== app/layout/header.html
+.global-nav {
+    li {
+        float: left;
+        a {
+            display: block;
+            .padding(short; @padding-y: 14; @padding-x: 15);
+            &:link, &:visited {
+                .color-complementary;
+            }
+            &:hover {
+                .background-complementary;
+                .color-complementary(@lightness: 100);
+            }
+            &:focus {
+                .background-complementary;
+                .color-complementary(@lightness: 100);
+            }
+        }
+    }
 }

@@ -5,7 +5,7 @@
         .module('app.core')
         .run(function($rootScope, $state) {
             return $rootScope.$on('$stateChangeStart', function() {
-                return $rootScope.$state = $state;
+                $rootScope.$state = $state;
             });
         })
         .config(function ($stateProvider, $urlRouterProvider) {

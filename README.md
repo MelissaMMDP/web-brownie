@@ -60,7 +60,8 @@ web-brownie/
 │               ├── color.controller.js
 │               ├── color.controller.spec.js
 │               ├── color.html
-│               └── color.module.js
+│               ├── color.module.js
+│               └── color.routes.js
 │           ├── core/
 │               ├── 404.html
 │               ├── core.module.js
@@ -69,7 +70,8 @@ web-brownie/
 │               ├── home.controller.js
 │               ├── home.controller.spec.js
 │               ├── home.html
-│               └── home.module.js
+│               ├── home.module.js
+│               └── home.routes.js
 │           ├── layout/
 │               ├── footer.directive.js
 │               ├── footer.directive.spec.js

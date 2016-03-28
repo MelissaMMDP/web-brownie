@@ -10,27 +10,10 @@
         })
         .config(function ($stateProvider, $urlRouterProvider) {
 
-            $urlRouterProvider.otherwise('/home');
+            $urlRouterProvider.when('', '/home');
+            $urlRouterProvider.otherwise('/404');
 
             $stateProvider
-                .state('home', {
-                    url: '/home',
-                    controller: 'Home',
-                    controllerAs: 'home',
-                    templateUrl: 'app/home/home.html',
-                    data: {
-                        title: 'Home'
-                    }
-                })
-                .state('color', {
-                    url: '/color',
-                    controller: 'Color',
-                    controllerAs: 'color',
-                    templateUrl: 'app/color/color.html',
-                    data: {
-                        title: 'Color'
-                    }
-                })
                 .state('404', {
                     url: '/404',
                     templateUrl: 'app/core/404.html',

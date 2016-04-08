@@ -6,9 +6,11 @@ describe('app.layout module', function () {
 
     beforeEach(inject(function ($compile, $rootScope) {
         elm = angular.element(
+            '<footer>' +
             '<p>' +
             '<small>&copy; Melissa Austin 2015</small>' +
-            '</p>');
+            '</p>' +
+            '</footer>');
         scope = $rootScope;
         $compile(elm)(scope);
         scope.$digest();

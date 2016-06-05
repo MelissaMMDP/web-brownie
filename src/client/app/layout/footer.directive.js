@@ -8,9 +8,8 @@
     /* @ngInject */
     function appFooter() {
         return {
-            restrict: 'E',
-            templateUrl: 'app/layout/footer.html',
-            replace: true
+            restrict: 'A',
+            templateUrl: 'app/layout/footer.html'
         };
     }
 

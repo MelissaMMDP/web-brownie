@@ -8,9 +8,8 @@
     /* @ngInject */
     function appHeader() {
         return {
-            restrict: 'E',
-            templateUrl: 'app/layout/header.html',
-            replace: true
+            restrict: 'A',
+            templateUrl: 'app/layout/header.html'
         };
     }
 

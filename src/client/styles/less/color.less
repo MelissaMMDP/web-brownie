@@ -1,160 +1,112 @@
+@import "variables";
+
 // ---------- COLOR
 
-// BASE COLOR
-//== base color variables *** this is where the magic happens :)
-// enter optional hue variable or custom hue range 0-360
-@hue: 180;
-// saturation range 0-100
-@saturation: 70;
-// lightness range 0-100 (0 = black, 100 = white)
-@lightness: 50;
-@alpha: 1;
-
-//== base color function
-@color-base: hsla(@hue, (@saturation/100), (@lightness/100), @alpha);
 //== base color mixins
-.color-base(@hue: @hue; @saturation: @saturation; @lightness: @lightness; @alpha: @alpha) {
-    color: @color-base;
+.c-base(@hue: @hue; @sat: @saturation; @lgt: @lightness; @op: @opacity) {
+    color: hsla(@hue, (@sat/100), (@lgt/100), @op);
+}
+.b-base(@hue: @hue; @sat: @saturation; @lgt: @lightness; @op: @opacity) {
+    background: hsla(@hue, (@sat/100), (@lgt/100), @op);
+}
+.f-base(@hue: @hue; @sat: @saturation; @lgt: @lightness; @op: @opacity) {
+    fill: hsla(@hue, (@sat/100), (@lgt/100), @op);
 }
 
-.background-base(@hue: @hue; @saturation: @saturation; @lightness: @lightness; @alpha: @alpha) {
-    background: @color-base;
-}
-
-.fill-base(@hue: @hue; @saturation: @saturation; @lightness: @lightness; @alpha: @alpha) {
-    fill: @color-base;
-}
-
-// COMPLEMENTARY COLOR
-//== complementary color function
-@cc: spin(@color-base, 180);
 //== complementary color mixins
-.color-complementary(@hue: @hue; @saturation: @saturation; @lightness: @lightness; @alpha: @alpha) {
-    color: @cc;
+.c-complementary(@hue: @hue; @sat: @saturation; @lgt: @lightness; @op: @opacity) {
+    color: spin(hsla(@hue, (@sat/100), (@lgt/100), @op), 180);
 }
 
-.background-complementary(@hue: @hue; @saturation: @saturation; @lightness: @lightness; @alpha: @alpha) {
-    background: @cc;
+.b-complementary(@hue: @hue; @sat: @saturation; @lgt: @lightness; @op: @opacity) {
+    background: spin(hsla(@hue, (@sat/100), (@lgt/100), @op), 180);
+}
+.f-complementary(@hue: @hue; @sat: @saturation; @lgt: @lightness; @op: @opacity) {
+    fill: spin(hsla(@hue, (@sat/100), (@lgt/100), @op), 180);
 }
 
-.fill-complementary(@hue: @hue; @saturation: @saturation; @lightness: @lightness; @alpha: @alpha) {
-    fill: @cc;
-}
-
-// ANALOGOUS COLOR
-//== analogous color functions
-@ac-one: spin(@color-base, -30);
-@ac-two: spin(@color-base, 30);
 //== analogous color mixins
-.color-analogous-one(@hue: @hue; @saturation: @saturation; @lightness: @lightness; @alpha: @alpha) {
-    color: @ac-one;
+.c-analogous-one(@hue: @hue; @sat: @saturation; @lgt: @lightness; @op: @opacity) {
+    color: spin(hsla(@hue, (@sat/100), (@lgt/100), @op), -30);
+}
+.b-analogous-one(@hue: @hue; @sat: @saturation; @lgt: @lightness; @op: @opacity) {
+    background: spin(hsla(@hue, (@sat/100), (@lgt/100), @op), -30);
+}
+.f-analogous-one(@hue: @hue; @sat: @saturation; @lgt: @lightness; @op: @opacity) {
+    fill: spin(hsla(@hue, (@sat/100), (@lgt/100), @op), -30);
+}
+.c-analogous-two(@hue: @hue; @sat: @saturation; @lgt: @lightness; @op: @opacity) {
+    color: spin(hsla(@hue, (@sat/100), (@lgt/100), @op), 30);
+}
+.b-analogous-two(@hue: @hue; @sat: @saturation; @lgt: @lightness; @op: @opacity) {
+    background: spin(hsla(@hue, (@sat/100), (@lgt/100), @op), 30);
+}
+.f-analogous-two(@hue: @hue; @sat: @saturation; @lgt: @lightness; @op: @opacity) {
+    fill: spin(hsla(@hue, (@sat/100), (@lgt/100), @op), 30);
 }
 
-.color-analogous-two(@hue: @hue; @saturation: @saturation; @lightness: @lightness; @alpha: @alpha) {
-    color: @ac-two;
-}
-
-.background-analogous-one(@hue: @hue; @saturation: @saturation; @lightness: @lightness; @alpha: @alpha) {
-    background: @ac-one;
-}
-
-.background-analogous-two(@hue: @hue; @saturation: @saturation; @lightness: @lightness; @alpha: @alpha) {
-    background: @ac-two;
-}
-
-.fill-analogous-one(@hue: @hue; @saturation: @saturation; @lightness: @lightness; @alpha: @alpha) {
-    fill: @ac-one;
-}
-
-.fill-analogous-two(@hue: @hue; @saturation: @saturation; @lightness: @lightness; @alpha: @alpha) {
-    fill: @ac-two;
-}
-
-// SPLIT COMPLEMENTARY
-//== split complementary color functions
-@scc-one: spin(@color-base, (180-30));
-@scc-two: spin(@color-base, (180+30));
 //== split complementary mixins
-.color-split-complementary-one(@hue: @hue; @saturation: @saturation; @lightness: @lightness; @alpha: @alpha) {
-    color: @scc-one;
+.c-split-complementary-one(@hue: @hue; @sat: @saturation; @lgt: @lightness; @op: @opacity) {
+    color: spin(hsla(@hue, (@sat/100), (@lgt/100), @op), (180-30));
+}
+.b-split-complementary-one(@hue: @hue; @sat: @saturation; @lgt: @lightness; @op: @opacity) {
+    background: spin(hsla(@hue, (@sat/100), (@lgt/100), @op), (180-30));
+}
+.f-split-complementary-one(@hue: @hue; @sat: @saturation; @lgt: @lightness; @op: @opacity) {
+    fill: spin(hsla(@hue, (@sat/100), (@lgt/100), @op), (180-30));
+}
+.c-split-complementary-two(@hue: @hue; @sat: @saturation; @lgt: @lightness; @op: @opacity) {
+    color: spin(hsla(@hue, (@sat/100), (@lgt/100), @op), (180+30));
+}
+.b-split-complementary-two(@hue: @hue; @sat: @saturation; @lgt: @lightness; @op: @opacity) {
+    background: spin(hsla(@hue, (@sat/100), (@lgt/100), @op), (180+30));
+}
+.f-split-complementary-two(@hue: @hue; @sat: @saturation; @lgt: @lightness; @op: @opacity) {
+    fill: spin(hsla(@hue, (@sat/100), (@lgt/100), @op), (180+30));
 }
 
-.color-split-complementary-two(@hue: @hue; @saturation: @saturation; @lightness: @lightness; @alpha: @alpha) {
-    color: @scc-two;
-}
-
-.background-split-complementary-one(@hue: @hue; @saturation: @saturation; @lightness: @lightness; @alpha: @alpha) {
-    background: @scc-one;
-}
-
-.background-split-complementary-two(@hue: @hue; @saturation: @saturation; @lightness: @lightness; @alpha: @alpha) {
-    background: @scc-two;
-}
-
-.fill-split-complementary-one(@hue: @hue; @saturation: @saturation; @lightness: @lightness; @alpha: @alpha) {
-    fill: @scc-one;
-}
-
-.fill-split-complementary-two(@hue: @hue; @saturation: @saturation; @lightness: @lightness; @alpha: @alpha) {
-    fill: @scc-two;
-}
-
-// TRIADIC COLOR
-//== triadic color functions
-@tc-one: spin(@color-base, -120);
-@tc-two: spin(@color-base, 120);
 //== triadic color mixins
-.color-triadic-one(@hue: @hue; @saturation: @saturation; @lightness: @lightness; @alpha: @alpha) {
-    color: @tc-one;
+.c-triadic-one(@hue: @hue; @sat: @saturation; @lgt: @lightness; @op: @opacity) {
+    color: spin(hsla(@hue, (@sat/100), (@lgt/100), @op), -120);
+}
+.b-triadic-one(@hue: @hue; @sat: @saturation; @lgt: @lightness; @op: @opacity) {
+    background: spin(hsla(@hue, (@sat/100), (@lgt/100), @op), -120);
+}
+.f-triadic-one(@hue: @hue; @sat: @saturation; @lgt: @lightness; @op: @opacity) {
+    fill: spin(hsla(@hue, (@sat/100), (@lgt/100), @op), -120);
+}
+.c-triadic-two(@hue: @hue; @sat: @saturation; @lgt: @lightness; @op: @opacity) {
+    color: spin(hsla(@hue, (@sat/100), (@lgt/100), @op), 120);
+}
+.b-triadic-two(@hue: @hue; @sat: @saturation; @lgt: @lightness; @op: @opacity) {
+    background: spin(hsla(@hue, (@sat/100), (@lgt/100), @op), 120);
+}
+.f-triadic-two(@hue: @hue; @sat: @saturation; @lgt: @lightness; @op: @opacity) {
+    fill: spin(hsla(@hue, (@sat/100), (@lgt/100), @op), 120);
 }
 
-.color-triadic-two(@hue: @hue; @saturation: @saturation; @lightness: @lightness; @alpha: @alpha) {
-    color: @tc-two;
-}
-
-.background-triadic-one(@hue: @hue; @saturation: @saturation; @lightness: @lightness; @alpha: @alpha) {
-    background: @tc-one;
-}
-
-.background-triadic-two(@hue: @hue; @saturation: @saturation; @lightness: @lightness; @alpha: @alpha) {
-    background: @tc-two;
-}
-
-.fill-triadic-one(@hue: @hue; @saturation: @saturation; @lightness: @lightness; @alpha: @alpha) {
-    fill: @tc-one;
-}
-
-.fill-triadic-two(@hue: @hue; @saturation: @saturation; @lightness: @lightness; @alpha: @alpha) {
-    fill: @tc-two;
-}
-
-// BORDER
-//== border variables
-@bds: solid;
-@bdw: 1;
-@bdc: @color-base;
 //== border mixins
-// add border on all sides, e.g., .border(all; 2; dotted; red); result = border: 0.125em dotted red;
-.border (@mixin; @border-width: @bdw; @border-style: @bds; @border-color: @bdc; @border-top-style: @bds; @border-right-style: @bds; @border-bottom-style: @bds; @border-left-style: @bds; @border-top-color: @bdc; @border-right-color: @bdc; @border-bottom-color: @bdc; @border-left-color: @bdc) when (@mixin =all) {
-    border: unit((@border-width / @fz), em) @border-style @border-color;
+// add border on all sides, e.g., .b(all; 2; dotted; red); result = border: 0.125em dotted red;
+.b (@mixin; @bdw: @border-width; @bds: @border-style; @bdc: @border-color; @bdts: @border-style; @bdrs: @border-style; @bdbs: @border-style; @bdls: @border-style; @bdtc: @border-color; @bdrc: @border-color; @bdbc: @border-color; @bdlc: @border-color) when (@mixin =all) {
+    border: unit((@bdw / @font-size), em) @bds @bdc;
 }
 
-// add top border, e.g., .border(@mixin: top; @border-top-color: red); result = border-top: 0.0625em solid red;
-.border (@mixin; @border-width: @bdw; @border-style: @bds; @border-color: @bdc; @border-top-style: @bds; @border-right-style: @bds; @border-bottom-style: @bds; @border-left-style: @bds; @border-top-color: @bdc; @border-right-color: @bdc; @border-bottom-color: @bdc; @border-left-color: @bdc) when (@mixin =top) {
-    border-top: unit((@border-width / @fz), em) @border-top-style @border-top-color;
+// add top border, e.g., .b(top; @bdtc: red); result = border-top: 0.0625em solid red;
+.b (@mixin; @bdw: @border-width; @bds: @border-style; @bdc: @border-color; @bdts: @border-style; @bdrs: @border-style; @bdbs: @border-style; @bdls: @border-style; @bdtc: @border-color; @bdrc: @border-color; @bdbc: @border-color; @bdlc: @border-color) when (@mixin =top) {
+    border-top: unit((@bdw / @font-size), em) @bdts @bdtc;
 }
 
-// add right border, e.g., .border(@mixin: right; @border-right-color: red); result = border-right: 0.0625em solid red;
-.border (@mixin; @border-width: @bdw; @border-style: @bds; @border-color: @bdc; @border-top-style: @bds; @border-right-style: @bds; @border-bottom-style: @bds; @border-left-style: @bds; @border-top-color: @bdc; @border-right-color: @bdc; @border-bottom-color: @bdc; @border-left-color: @bdc) when (@mixin =right) {
-    border-right: unit((@border-width / @fz), em) @border-right-style @border-right-color;
+// add right border, e.g., .b(right; @bdrc: red); result = border-right: 0.0625em solid red;
+.b (@mixin; @bdw: @border-width; @bds: @border-style; @bdc: @border-color; @bdts: @border-style; @bdrs: @border-style; @bdbs: @border-style; @bdls: @border-style; @bdtc: @border-color; @bdrc: @border-color; @bdbc: @border-color; @bdlc: @border-color) when (@mixin =right) {
+    border-right: unit((@bdw / @font-size), em) @bdrs @bdrc;
 }
 
-// add bottom border, e.g., .border(@mixin: bottom; @border-bottom-color: red); result = border-bottom: 0.0625em solid red;
-.border (@mixin; @border-width: @bdw; @border-style: @bds; @border-color: @bdc; @border-top-style: @bds; @border-right-style: @bds; @border-bottom-style: @bds; @border-left-style: @bds; @border-top-color: @bdc; @border-right-color: @bdc; @border-bottom-color: @bdc; @border-left-color: @bdc) when (@mixin =bottom) {
-    border-bottom: unit((@border-width / @fz), em) @border-bottom-style @border-bottom-color;
+// add bottom border, e.g., .b(bottom; @bdbc: red); result = border-bottom: 0.0625em solid red;
+.b (@mixin; @bdw: @border-width; @bds: @border-style; @bdc: @border-color; @bdts: @border-style; @bdrs: @border-style; @bdbs: @border-style; @bdls: @border-style; @bdtc: @border-color; @bdrc: @border-color; @bdbc: @border-color; @bdlc: @border-color) when (@mixin =bottom) {
+    border-bottom: unit((@bdw / @font-size), em) @bdbs @bdbc;
 }
 
-// add left border, e.g., .border(@mixin: left; @border-width:2; @border-left-color:green); result = border-left: 0.125em solid green;
-.border (@mixin; @border-width: @bdw; @border-style: @bds; @border-color: @bdc; @border-top-style: @bds; @border-right-style: @bds; @border-bottom-style: @bds; @border-left-style: @bds; @border-top-color: @bdc; @border-right-color: @bdc; @border-bottom-color: @bdc; @border-left-color: @bdc) when (@mixin =left) {
-    border-left: unit((@border-width / @fz), em) @border-left-style @border-left-color;
+// add left border, e.g., .b(left; @bdw:2; @bdlc:green); result = border-left: 0.125em solid green;
+.b (@mixin; @bdw: @border-width; @bds: @border-style; @bdc: @border-color; @bdts: @border-style; @bdrs: @border-style; @bdbs: @border-style; @bdls: @border-style; @bdtc: @border-color; @bdrc: @border-color; @bdbc: @border-color; @bdlc: @border-color) when (@mixin =left) {
+    border-left: unit((@bdw / @font-size), em) @bdls @bdlc;
 }

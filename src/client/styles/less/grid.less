@@ -1,6 +1,7 @@
+@import "variables";
+
 // ---------- GRID
 
-// CLEARFIX
 //== clearfix mixin
 .clearfix() {
   &:before, &:after {
@@ -10,59 +11,41 @@
   }
 }
 
-// BOX-SIZING
-//== box-sizing variable
-@bxz: border-box;
 //== box-sizing mixin
-.box-sizing (@box-sizing: @bxz) {
-  -webkit-box-sizing: @box-sizing;
-  -moz-box-sizing: @box-sizing;
-  box-sizing: @box-sizing;
-  *, *:before, *:after {
-    box-sizing: inherit;
-  }
+.bxz (@bxz: @box-sizing) {
+    -webkit-box-sizing: @bxz;
+    -moz-box-sizing: @bxz;
+    box-sizing: @bxz;
+    *, *:before, *:after {
+        box-sizing: inherit;
+    }
 }
 
-// GRID
 //== grid mixins
 // included in all grid mixins
-.grid (@mixin; @min-width: @miw; @max-width: @maw) {
+.grid (@mixin; @miw: @min-width; @maw: @max-width) {
   margin: 0 auto;
   width: 100%;
   .clearfix;
 }
 
 // full width grid mixin, e.g., .grid(full); result = margin: 0 auto; width: 100%;
-.grid (@mixin; @min-width: @miw; @max-width: @maw) when (@mixin = full) {}
+.grid (@mixin; @miw: @min-width; @maw: @max-width) when (@mixin = full) {}
 
-// min width grid mixin (mobile first approach), e.g., .grid(min; @min-width: 320); result = margin: 0 auto; width: 100%; min-width: 20em;
-.grid (@mixin; @min-width: @miw; @max-width: @maw) when (@mixin = min) {
-    min-width: unit((@min-width / @fz), em);
+// min width grid mixin (mobile first approach), e.g., .grid(miw; @miw: 320); result = margin: 0 auto; width: 100%; min-width: 20em;
+.grid (@mixin; @miw: @min-width; @maw: @max-width) when (@mixin = miw) {
+    min-width: unit((@miw / @font-size), em);
 }
 
-// max width grid mixin, e.g., .grid(max; @max-width: 960); result = margin: 0 auto; width: 100%; max-width: 60em;
-.grid (@mixin; @max-width: @maw; @min-width: @miw) when (@mixin = max) {
-  max-width: unit((@max-width / @fz), em);
+// max width grid mixin, e.g., .grid(maw; @maw: 960); result = margin: 0 auto; width: 100%; max-width: 60em;
+.grid (@mixin; @maw: @max-width; @miw: @min-width) when (@mixin = maw) {
+  max-width: unit((@maw / @font-size), em);
 }
 
-// COLUMN
-//== column variables
-@fl: left;
-@ta: left;
 //== column mixin
-// column, e.g., .column(6); result = float: left; text-align: left; width: 50%;
-.column(@span; @float: @fl; @font-size: @fz; @text-align: @ta) {
-  float: @float;
-  text-align: @text-align;
-  width: ((100% / 12 * @span)*1.0);
+// column, e.g., .col(6); result = float: left; text-align: left; width: 50%;
+.col(@span; @fl: @float; @ta: @text-align) {
+    float: @fl;
+    text-align: @ta;
+    width: ((100% / 12 * @span)*1.0);
 }
-
-// MEDIA
-//== media breakpoints
-// e.g., section { @media @media-sm { .background-base; } }
-@media-xs: ~"(min-width: 20em)"; // 320px
-@media-sm: ~"(min-width: 30em)"; // 480px
-@media-md: ~"(min-width: 40em)"; // 640px
-@media-lg: ~"(min-width: 45em)"; // 720px
-@media-xl: ~"(min-width: 60em)"; // 960px
-@media-xxl: ~"(min-width: 80em)"; // 1280px

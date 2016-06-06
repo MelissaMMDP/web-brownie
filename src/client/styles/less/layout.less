@@ -1,115 +1,108 @@
+@import "variables";
+
 // ---------- LAYOUT
 
-// HEIGHT
-//== height mixin
-.height(@height, @font-size: @fz) {
-    height: unit((@height / @font-size), em);
+//== height mixin (must provide height)
+// height, e.g., .h(100; @fz: 24); result = height: 4.16666667em;
+.h(@h, @fz: @font-size) {
+    height: unit((@h / @fz), em);
 }
 
-// MARGIN
-//== margin variables
-@m: 20;
-@m-v: @p;
-@m-h: @p;
+//== line-height mixin
+// line-height, e.g., .lh(100; @fz: 24; @p: 10); result = line-height: 3.33333333em;
+.lh(@h; @fz: @font-size; @p: @padding) {
+    line-height: unit((@h / @fz) - ((@p * 2) / @fz), em);
+}
+
 //== margin mixins
-// mixed margin, e.g., .margin(mix; @margin-right: 0; @margin-bottom: 0; @font-size: 36); result = margin:0.55555556em 0em 0em 0.55555556em;
-.margin (@mixin; @margin-top: @m; @margin-right: @m; @margin-bottom: @m; @margin-left: @m; @margin-y: @m-v; @margin-x: @m-h; @margin: @m; @font-size: @fz) when (@mixin = mix) {
-    margin: unit((@margin-top / @font-size), em) unit((@margin-right / @font-size), em) unit((@margin-bottom / @font-size), em) unit((@margin-left / @font-size), em);
+// mixed margin, e.g., .m(mix; @mr: 0; @mb: 0; @fz: 36); result = margin:0.55555556em 0em 0em 0.55555556em;
+.m (@mixin; @mt: @margin; @mr: @margin; @mb: @margin; @ml: @margin; @m-y: @margin; @m-x: @margin; @m: @margin; @fz: @font-size) when (@mixin = mix) {
+    margin: unit((@mt / @fz), em) unit((@mr / @fz), em) unit((@mb / @fz), em) unit((@ml / @fz), em);
 }
 
-// margin shorthand, e.g., .margin(short; @margin-x: 0; @font-size: 36); result = margin: 0.55555556em 0em;
-.margin (@mixin; @margin-y: @m-v; @margin-x: @m-h; @font-size: @fz; @margin-top: @m; @margin-right: @m; @margin-bottom: @m; @margin-left: @m; @margin: @m) when (@mixin = short) {
-    margin: unit((@margin-y / @font-size), em) unit((@margin-x / @font-size), em);
+// margin shorthand, e.g., .m(short; @m-x: 0; @fz: 36); result = margin: 0.55555556em 0em;
+.m (@mixin; @m-y: @margin; @m-x: @margin; @fz: @font-size; @mt: @margin; @mr: @margin; @mb: @margin; @ml: @margin; @m: @margin) when (@mixin = short) {
+    margin: unit((@m-y / @fz), em) unit((@m-x / @fz), em);
 }
 
-// add margin on all sides, e.g., .margin(all; @margin: 40); result = margin: 2.5em;
-.margin (@mixin; @margin: @m; @font-size: @fz; @margin-top: @m; @margin-right: @m; @margin-bottom: @m; @margin-left: @m; @margin-y: @m-v; @margin-x: @m-h) when (@mixin = all) {
-    margin: unit((@margin / @font-size), em);
+// add margin on all sides, e.g., .m(all; @m: 40); result = margin: 2.5em;
+.m (@mixin; @m: @margin; @fz: @font-size; @mt: @margin; @mr: @margin; @mb: @margin; @ml: @margin; @m-y: @margin; @m-x: @margin) when (@mixin = all) {
+    margin: unit((@m / @fz), em);
 }
 
-// add top margin, e.g., .margin(top; @margin-top: 40; @font-size: 36); result = margin-top: 1.111111111111111em;
-.margin (@mixin; @margin-top: @m; @font-size: @fz; @margin-right: @m; @margin-bottom: @m; @margin-left: @m; @margin-y: @m-v; @margin-x: @m-h; @margin: @m) when (@mixin = top) {
-    margin-top: unit((@margin-top / @font-size), em);
+// add top margin, e.g., .m(top; @mt: 40; @fz: 36); result = margin-top: 1.111111111111111em;
+.m (@mixin; @mt: @margin; @fz: @font-size; @mr: @margin; @mb: @margin; @ml: @margin; @m-y: @margin; @m-x: @margin; @m: @margin) when (@mixin = top) {
+    margin-top: unit((@mt / @fz), em);
 }
 
-// add right margin, e.g., .margin(right; @margin-right: 40); result = margin-right: 2.5em;
-.margin (@mixin; @margin-right: @m; @font-size: @fz; @margin-top: @m; @margin-bottom: @m; @margin-left: @m; @margin-y: @m-v; @margin-x: @m-h; @margin: @m) when (@mixin = right) {
-    margin-right: unit((@margin-right / @font-size), em);
+// add right margin, e.g., .m(right; @mr: 40); result = margin-right: 2.5em;
+.m (@mixin; @mr: @margin; @fz: @font-size; @mt: @margin; @mb: @margin; @ml: @margin; @m-y: @margin; @m-x: @margin; @m: @margin) when (@mixin = right) {
+    margin-right: unit((@mr / @fz), em);
 }
 
-// add bottom margin, e.g., .margin(bottom; @margin-bottom: 40); result = margin-bottom: 2.5em;
-.margin (@mixin; @margin-bottom: @m; @font-size: @fz; @margin-top: @m; @margin-right: @m; @margin-left: @m; @margin-y: @m-v; @margin-x: @m-h; @margin: @m) when (@mixin = bottom) {
-    margin-bottom: unit((@margin-bottom / @font-size), em);
+// add bottom margin, e.g., .m(bottom; @mb: 40); result = margin-bottom: 2.5em;
+.m (@mixin; @mb: @margin; @fz: @font-size; @mt: @margin; @mr: @margin; @ml: @margin; @m-y: @margin; @m-x: @margin; @m: @margin) when (@mixin = bottom) {
+    margin-bottom: unit((@mb / @fz), em);
 }
 
-// add left margin, e.g., .margin(left; @margin-left: 40); result = margin-left: 2.5em;
-.margin (@mixin; @margin-left: @m; @font-size: @fz; @margin-top: @m; @margin-right: @m; @margin-bottom: @m; @margin-y: @m-v; @margin-x: @m-h; @margin: @m) when (@mixin = left) {
-    margin-left: unit((@margin-left / @font-size), em);
+// add left margin, e.g., .m(left; @ml: 40); result = margin-left: 2.5em;
+.m (@mixin; @ml: @margin; @fz: @font-size; @mt: @margin; @mr: @margin; @mb: @margin; @m-y: @margin; @m-x: @margin; @m: @margin) when (@mixin = left) {
+    margin-left: unit((@ml / @fz), em);
 }
 
-// PADDING
-//== padding variables
-@p: 20;
-@p-v: @p;
-@p-h: @p;
 //== padding mixins
-// mixed padding, e.g., .padding(mix; @padding-bottom: 0; @font-size: 36); result = 0.55555556em 0.55555556em 0em 0.55555556em;
-.padding (@mixin; @padding-top: @p; @padding-right: @p; @padding-bottom: @p; @padding-left: @p; @font-size: @fz; @padding-y: @p-v; @padding-x: @p-h; @padding: @p) when (@mixin = mix) {
-    padding: unit((@padding-top / @font-size), em) unit((@padding-right / @font-size), em) unit((@padding-bottom / @font-size), em) unit((@padding-left / @font-size), em);
+// mixed padding, e.g., .p(mix; @pb: 0; @fz: 36); result = 0.55555556em 0.55555556em 0em 0.55555556em;
+.p (@mixin; @pt: @padding; @pr: @padding; @pb: @padding; @pl: @padding; @fz: @font-size; @p-y: @padding; @p-x: @padding; @p: @padding) when (@mixin = mix) {
+    padding: unit((@pt / @fz), em) unit((@pr / @fz), em) unit((@pb / @fz), em) unit((@pl / @fz), em);
 }
 
-// padding shorthand, e.g., .padding(short; @padding-y: 0; @font-size: 36); result = padding: 0em 0.55555556em;
-.padding (@mixin; @padding-y: @p-v; @padding-x: @p-h; @font-size: @fz; @padding-top: @p; @padding-right: @p; @padding-bottom: @p; @padding-left: @p; @padding: @p) when (@mixin = short) {
-    padding: unit((@padding-y / @font-size), em) unit((@padding-x / @font-size), em);
+// padding shorthand, e.g., .p(short; @p-y: 0; @fz: 36); result = padding: 0em 0.55555556em;
+.p (@mixin; @p-y: @padding; @p-x: @padding; @fz: @font-size; @pt: @padding; @pr: @padding; @pb: @padding; @pl: @padding; @p: @padding) when (@mixin = short) {
+    padding: unit((@p-y / @fz), em) unit((@p-x / @fz), em);
 }
 
-// add padding on all sides, e.g., .padding(all; @padding: 40); result = padding: 2.5em;
-.padding (@mixin; @padding: @p; @font-size: @fz; @padding-top: @p; @padding-right: @p; @padding-bottom: @p; @padding-left: @p; @padding-y: @p-v; @padding-x: @p-h) when (@mixin = all) {
-    padding: unit((@padding / @font-size), em);
+// add padding on all sides, e.g., .p(all; @p: 40); result = padding: 2.5em;
+.p (@mixin; @p: @padding; @fz: @font-size; @pt: @padding; @pr: @padding; @pb: @padding; @pl: @padding; @p-y: @padding; @p-x: @padding) when (@mixin = all) {
+    padding: unit((@p / @fz), em);
 }
 
-// add top padding, e.g., .padding(top; @padding-top: 40); result = padding-top: 2.5em;
-.padding (@mixin; @padding-top: @p; @font-size: @fz; @padding-right: @p; @padding-bottom: @p; @padding-left: @p; @padding-y: @p-v; @padding-x: @p-h; @padding: @p) when (@mixin = top) {
-    padding-top: unit((@padding-top / @font-size), em);
+// add top padding, e.g., .p(top; @pt: 40); result = padding-top: 2.5em;
+.p (@mixin; @pt: @padding; @fz: @font-size; @pr: @padding; @pb: @padding; @pl: @padding; @p-y: @padding; @p-x: @padding; @p: @padding) when (@mixin = top) {
+    padding-top: unit((@pt / @fz), em);
 }
 
-// add right padding, e.g., .padding(right; @padding-right: 40); result = padding-right: 2.5em;
-.padding (@mixin; @padding-right: @p; @font-size: @fz; @padding-top: @p; @padding-bottom: @p; @padding-left: @p; @padding-y: @p-v; @padding-x: @p-h; @padding: @p) when (@mixin = right) {
-    padding-right: unit((@padding-right / @font-size), em);
+// add right padding, e.g., .p(right; @pr: 40); result = padding-right: 2.5em;
+.p (@mixin; @pr: @padding; @fz: @font-size; @pt: @padding; @pb: @padding; @pl: @padding; @p-y: @padding; @p-x: @padding; @p: @padding) when (@mixin = right) {
+    padding-right: unit((@pr / @fz), em);
 }
 
-// add bottom padding, e.g., .padding(bottom; @padding-bottom: 40); result = padding-bottom: 2.5em;
-.padding (@mixin; @padding-bottom: @p; @font-size: @fz; @padding-top: @p; @padding-right: @p; @padding-left: @p; @padding-y: @p-v; @padding-x: @p-h; @padding: @p) when (@mixin = bottom) {
-    padding-bottom: unit((@padding-bottom / @font-size), em);
+// add bottom padding, e.g., .p(bottom; @pb: 40); result = padding-bottom: 2.5em;
+.p (@mixin; @pb: @padding; @fz: @font-size; @pt: @padding; @pr: @padding; @pl: @padding; @p-y: @padding; @p-x: @padding; @p: @padding) when (@mixin = bottom) {
+    padding-bottom: unit((@pb / @fz), em);
 }
 
-// add left padding, e.g., .padding(left; @padding-left: 40); result = padding-left: 2.5em;
-.padding (@mixin; @padding-left: @p; @font-size: @fz; @padding-top: @p; @padding-right: @p; @padding-bottom: @p; @padding-y: @p-v; @padding-x: @p-h; @padding: @p) when (@mixin = left) {
-    padding-left: unit((@padding-left / @font-size), em);
+// add left padding, e.g., .p(left; @pl: 40); result = padding-left: 2.5em;
+.p (@mixin; @pl: @padding; @fz: @font-size; @pt: @padding; @pr: @padding; @pb: @padding; @p-y: @padding; @p-x: @padding; @p: @padding) when (@mixin = left) {
+    padding-left: unit((@pl / @fz), em);
 }
 
-// WIDTH
-//== width variables
-@w: 960;
-@maw: 1280;
-@miw: 320;
 //== width mixins
-// converts px to em unit, e.g., .width(em; 960); result = width: 60em;
-.width (@mixin; @width: @w; @max-width: @maw; @min-width: @miw) when (@mixin = em) {
-    width: unit((@width / @fz), em);
+// converts px to em unit, e.g., .w(em; 960); result = width: 60em;
+.w (@mixin; @w: @width; @maw: @max-width; @miw: @min-width) when (@mixin = em) {
+    width: unit((@w / @font-size), em);
 }
 
-// converts floating point number to percentage, e.g., .width(pct; .5); result = width: 50%;
-.width (@mixin; @width: @w; @max-width: @maw; @min-width: @miw) when (@mixin = pct) {
-    width: percentage(@width);
+// converts floating point number to percentage, e.g., .w(pct; .5); result = width: 50%;
+.w (@mixin; @w: @width; @maw: @max-width; @miw: @min-width) when (@mixin = pct) {
+    width: percentage(@w);
 }
 
-// max-width, e.g., .width(max; 960); result = max-width: 60em;
-.width (@mixin; @max-width: @maw; @min-width: @miw; @width: @w) when (@mixin = max) {
-    max-width: unit((@max-width / @fz), em);
+// max-width, e.g., .w(maw; 960); result = max-width: 60em;
+.w (@mixin; @maw: @max-width; @miw: @min-width; @w: @width) when (@mixin = maw) {
+    max-width: unit((@maw / @font-size), em);
 }
 
-// min-width, e.g., .width(min; 320); result = min-width: 20em;
-.width (@mixin; @min-width: @miw; @width: @w; @max-width: @maw) when (@mixin = min) {
-    min-width: unit((@min-width / @fz), em);
+// min-width, e.g., .w(miw; 320); result = min-width: 20em;
+.w (@mixin; @miw: @min-width; @w: @width; @maw: @max-width) when (@mixin = miw) {
+    min-width: unit((@miw / @font-size), em);
 }

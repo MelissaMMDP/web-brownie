@@ -1,6 +1,6 @@
 # Web Brownie
 
-Named after those mischievous brownies of folklore. In folklore, a [brownie](https://en.wikipedia.org/wiki/Brownie_(folklore)) resembles the hob, similar to a hobgoblin. Brownies are said to inhabit houses and aid in tasks around the house. However, they do not like to be seen and will only work at night, traditionally in exchange for small gifts of food.
+Named after those mischievous [brownies](https://en.wikipedia.org/wiki/Brownie_(folklore)) of folklore.
 
 ## Table of Contents
 
@@ -87,7 +87,8 @@ web-brownie/
 │               ├── font.less
 │               ├── grid.less
 │               ├── import.less
-│               └── layout.less
+│               ├── layout.less
+│               └── variables.less
 │           └── styles.less
 │       └── index.html
 │   ├── server/

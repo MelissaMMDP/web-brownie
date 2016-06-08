@@ -10,12 +10,12 @@
 }
 
 // font-family mixin
-.ff (@mixin; @ff: @font-family-sans-serif; @fw: @font-weight; @ta: @text-align) {
+.ff (@mixin; @ff: @open-sans; @fw: @font-weight; @ta: @text-align) {
   text-align: @ta;
 }
 
 // font-family sans, e.g., .ff(sans); result = font-family: 'Open Sans', sans-serif; font-weight: 300;
-.ff (@mixin; @ff: @font-family-sans-serif; @fw: @font-weight; @ta: @text-align) when (@mixin = sans) {
+.ff (@mixin; @ff: @open-sans; @fw: @font-weight; @ta: @text-align) when (@mixin = sans) {
   font-family: @ff;
   font-weight: @fw;
 }

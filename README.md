@@ -39,7 +39,7 @@ This is a simple application built using Node.js, Express, Karma, Jasmine, Gulp,
     
 ## Installation
 
-- Clone the repo: `git clone https://github.com/MAustinMMDP/web-brownie.git`.
+- Clone the repo: `git clone https://github.com/MelissaMMDP/web-brownie.git`.
 - Install npm from within the project folder:
     ```bash
     npm install

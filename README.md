@@ -20,7 +20,7 @@ This is a simple application built using Node.js, Express, Karma, Jasmine, Gulp,
 ## Example
 
 - [Web Brownie](http://web-brownie.pancakeapps.com/) - Live demo
-- [Codepen](http://codepen.io/MAustinMMDP/pen/doGbNy) - Web Brownie on Codepen
+- [Codepen](http://codepen.io/MelissaMMDP/pen/doGbNy) - Web Brownie on Codepen
 - [Plunker](http://embed.plnkr.co/Sog5Sp/preview) - Web Brownie Color.less in Action
 
 **[Back to top](#table-of-contents)**
@@ -150,7 +150,7 @@ Attributions are appreciated.
 
 ### Copyright
 
-Copyright (c) 2015 Melissa Austin
+Copyright (c) 2015 Melissa Canada
 
 ### (The MIT License)
 Permission is hereby granted, free of charge, to any person obtaining a copy

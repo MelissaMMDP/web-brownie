@@ -19,7 +19,6 @@ This is a simple application built using Node.js, Express, Karma, Jasmine, Gulp,
 
 ## Example
 
-- [Web Brownie](http://web-brownie.pancakeapps.com/) - Live demo
 - [Codepen](http://codepen.io/MelissaMMDP/pen/doGbNy) - Web Brownie on Codepen
 - [Plunker](http://embed.plnkr.co/Sog5Sp/preview) - Web Brownie Color.less in Action
 
